@@ -1,20 +1,23 @@
 package com.customer.delivery.holidays;
 
+import com.customer.delivery.service.HolidaysService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
-@Component
 public class PublicHolidays implements Holidays {
 
     @Override
-    public Set<LocalDateTime> getHolidays() {
-        var publicHolidays = new TreeSet<LocalDateTime>();
-        IntStream.range(1, 26)
-                .forEach(value -> publicHolidays
-                        .add(LocalDateTime.now().plusMonths(value)));
-        return publicHolidays;
+    public Set<LocalDate> getHolidays() {
+        var berlinHolidays = new TreeSet<LocalDate>();
+        LongStream.range(10,20).forEach(value -> berlinHolidays.add(
+                LocalDate.now().plusDays(value+10)
+        ));
+
+        return berlinHolidays;
     }
+
 }

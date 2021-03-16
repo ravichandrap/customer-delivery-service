@@ -1,7 +1,6 @@
 package com.customer.delivery.holidays;
 
-import java.time.LocalDateTime;
-import java.util.HashSet;
+import java.time.LocalDate;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.LongStream;
@@ -12,12 +11,13 @@ public class BerlinHolidays implements Holidays {
     BerlinHolidays(Holidays holidays) {
         this.holidays = holidays;
     }
-    @Override
-    public Set<LocalDateTime> getHolidays() {
 
-        var berlinHolidays = new TreeSet<LocalDateTime>();
+    @Override
+    public Set<LocalDate> getHolidays() {
+
+        var berlinHolidays = new TreeSet<LocalDate>();
         LongStream.range(1,10).forEach(value -> berlinHolidays.add(
-                LocalDateTime.now().plusDays(value+10)
+                LocalDate.now().plusDays(value+10)
         ));
 
         berlinHolidays.addAll(this.holidays.getHolidays());

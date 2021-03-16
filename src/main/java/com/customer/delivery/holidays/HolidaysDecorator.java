@@ -4,14 +4,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class HolidaysDecorator {
-//    public static void main(String[] args) {
-//        var holidays = new HolidaysDecorator().getHolidaysByCiti("munich");
-//        var list = holidays.getHolidays();
-//        System.out.println("All holidays size: " + list.size());
-//    }
 
     public Holidays getHolidaysByCiti(String city) {
         var holidays = new WeekEndHolidays(new PublicHolidays());
+
         if(city == null || city.isEmpty()) {
             return holidays;
         }

@@ -3,6 +3,7 @@ package com.customer.delivery.service;
 import com.customer.delivery.calculate.DeliveryCalculator;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Component
@@ -13,7 +14,7 @@ public class CustomerDeliveryService {
         this.calculator = calculator;
     }
 
-    public LocalDateTime getExpectedDate(LocalDateTime date, String carrier, String city) {
+    public LocalDate getExpectedDate(LocalDateTime date, String carrier, String city) {
         return this.calculator.expectedDeliveryDate(date, carrier, city);
     }
 }

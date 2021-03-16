@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
@@ -24,7 +25,7 @@ public class CustomerDeliveryController {
     }
 
     @GetMapping("/expected")
-    public LocalDateTime expected(@RequestBody DeliveryRequest request) {
+    public LocalDate expected(@RequestBody DeliveryRequest request) {
         var date = ZonedDateTime.parse(request.getDate()).toLocalDateTime();
         logger.info("Input request: {}",request.toString());
         logger.info("LocalDateTime.parse: {}", date);
